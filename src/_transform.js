@@ -1,9 +1,11 @@
 import { Euler, Vector3 } from '../vendors/three.module.js'
 import { TransformControls } from '../vendors/TransformControls.js'
 
+const id = 'aimer'
+
 class Transform_dev {
     constructor(camera, canvas) {
-        this._id = 'millet'
+        this._id = id
         this._camera = camera
         this._transform = new TransformControls(this._camera.Object3D, canvas)
         this._transform.addEventListener('dragging-changed', e => {
