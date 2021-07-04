@@ -15,7 +15,7 @@ const root = (canvas) => {
     dLight.position.set(-5, 10, 0)
     const aLight = new AmbientLight(0xFFFFFF, 0.1)
 
-    const grid = new GridHelper()
+    const grid = new GridHelper(100, 10)
     const axes = new AxesHelper(10)
 
     const scene = new Scene()

@@ -8,7 +8,7 @@ class Camera {
             45,
             canvas.clientWidth / canvas.clientHeight,
             0.5,
-            1000
+            5000
         )
     }
 
