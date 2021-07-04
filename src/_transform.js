@@ -121,13 +121,13 @@ class Transform_dev {
         this._currentMesh = this._meshes[0]
 
         // update old transformation WIP
-        let transformations = localStorage.getItem(this._id)
-        if (transformations) {
-           transformations = JSON.parse(transformations)
-           for (let tfm of transformations) {
+        // let transformations = localStorage.getItem(this._id)
+        // if (transformations) {
+        //    transformations = JSON.parse(transformations)
+        //    for (let tfm of transformations) {
 
-           } 
-        }
+        //    } 
+        // }
     }
 }
 
