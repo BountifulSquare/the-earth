@@ -7,17 +7,23 @@ const material = new MeshStandardMaterial()
 
 const Box = (color) => {
     const mat = color ? new MeshStandardMaterial({color}) : material
-    return new Mesh(box, mat)
+    const mesh = new Mesh(box, mat)
+    mesh.name = 'Box' 
+    return mesh
 }
 
 const Sphere = (color) => {
     const mat = color ? new MeshStandardMaterial({color}) : material
-    return new Mesh(sphere, mat)
+    const mesh = new Mesh(sphere, mat)
+    mesh.name = 'sphere'
+    return mesh
 }
 
 const Cylinder = (color) => {
     const mat = color ? new MeshStandardMaterial({color}) : material
-    return new Mesh(cylinder, mat)
+    const mesh = new Mesh(cylinder, mat)
+    mesh.name = 'cylinder'
+    return mesh
 }
 
 export {

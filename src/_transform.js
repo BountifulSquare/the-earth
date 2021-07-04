@@ -1,4 +1,4 @@
-import { Vector3 } from '../vendors/three.module.js'
+import { Euler, Vector3 } from '../vendors/three.module.js'
 import { TransformControls } from '../vendors/TransformControls.js'
 
 class Transform_dev {
@@ -68,6 +68,7 @@ class Transform_dev {
         const mesh = this._meshes[this._currentIndex]
         this._transform.attach(mesh)
         this._currentMesh = mesh
+        this._UI()
     }
 
     _updateMesh() {
@@ -75,7 +76,7 @@ class Transform_dev {
         const posX = +posUI[0].value
         const posY = +posUI[1].value
         const posZ = +posUI[2].value
-    
+
         const rotUI = this._rotationUI.children
         const rotX = +rotUI[0].value
         const rotY = +rotUI[1].value
@@ -108,7 +109,7 @@ class Transform_dev {
             this._rotationUI.children[0].value = rotation.x
             this._rotationUI.children[1].value = rotation.y
             this._rotationUI.children[2].value = rotation.z
-        
+
             this._scaleUI.children[0].value = scale.x
             this._scaleUI.children[1].value = scale.y
             this._scaleUI.children[2].value = scale.z
@@ -120,14 +121,46 @@ class Transform_dev {
         this._transform.attach(this._meshes[0])
         this._currentMesh = this._meshes[0]
 
-        // update old transformation WIP
-        // let transformations = localStorage.getItem(this._id)
-        // if (transformations) {
-        //    transformations = JSON.parse(transformations)
-        //    for (let tfm of transformations) {
+        // update old transformation
+        let transformations = localStorage.getItem(this._id)
+        if (transformations) {
+            transformations = JSON.parse(transformations)
+            const posV = new Vector3()
+            const rotV = new Vector3()
+            const scaV = new Vector3()
+            const euler = new Euler()
+            const tempMesh = this._meshes.map(_ => _)
 
-        //    } 
-        // }
+            for (let tfm of transformations) {
+                for (let i = 0; i < tempMesh.length; i++) {
+                    if (tfm.name === tempMesh[i].name) {
+                        posV.set(
+                            tfm.position.x,
+                            tfm.position.y,
+                            tfm.position.z
+                        )
+                        rotV.set(
+                            tfm.rotation._x,
+                            tfm.rotation._y,
+                            tfm.rotation._z
+                        )
+                        scaV.set(
+                            tfm.scale.x,
+                            tfm.scale.y,
+                            tfm.scale.z,
+                        )
+                        euler.setFromVector3(rotV, 'XYZ')
+                        tempMesh[i].position.copy(posV)
+                        tempMesh[i].setRotationFromEuler(euler)
+                        tempMesh[i].scale.copy(scaV)
+
+                        tempMesh.splice(i, 1)
+
+                        break
+                    }
+                }
+            }
+        }
     }
 }
 

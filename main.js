@@ -9,8 +9,6 @@ import { Box, Sphere } from './src/_primitives.js'
     const camera = new CameraSwitch_dev(canvas)
     const transform = new Transform_dev(camera, canvas)
 
-    scene.add(transform.Object3D)
-
     function run() {
         renderer.render(scene, camera.Object3D)
 
