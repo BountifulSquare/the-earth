@@ -1,7 +1,7 @@
 import { Euler, Vector3 } from '../vendors/three.module.js'
 import { TransformControls } from '../vendors/TransformControls.js'
 
-const id = 'aimer'
+const id = 'key_goes_here'
 
 class Transform_dev {
     constructor(camera, canvas) {
