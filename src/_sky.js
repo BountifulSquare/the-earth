@@ -27,8 +27,8 @@ const Sky = () => {
     const geo = new SphereGeometry(2250)
     const mat = new ShaderMaterial({
         uniforms: {
-            uTopColor: { value: new Color(0x0077ff) },
-            uBottomColor: { value: new Color(0xffffff) },
+            uTopColor: { value: new Color(0x0077FF) },
+            uBottomColor: { value: new Color(0xEEEEEE) },
             uOffset: { value: 33 },
             uExponent: { value: 0.6 }
         },
