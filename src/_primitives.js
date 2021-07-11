@@ -1,7 +1,7 @@
 import { BoxGeometry, CylinderGeometry, Mesh, MeshStandardMaterial, SphereGeometry } from '../vendors/three.module.js'
 
 const box = new BoxGeometry()
-const sphere = new SphereGeometry()
+const sphere = new SphereGeometry(1, 30, 30)
 const cylinder = new CylinderGeometry()
 const material = new MeshStandardMaterial()
 
